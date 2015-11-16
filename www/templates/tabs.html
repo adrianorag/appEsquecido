@@ -1,0 +1,42 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <ion-tab title="Lembrete" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+  <!--
+  <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
+  </ion-tab>-->
+  <ion-tab title="Account" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+<!--
+
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Activity
+            </a>
+            <a ui-sref="app.friends" class="tab-item">
+                <i class="icon ion-android-people"></i> Friends
+            </a>
+            <a ui-sref="app.gallery" class="tab-item">
+                <i class="icon ion-images"></i> Photos
+            </a>
+        </div>
+-->
+</ion-tabs>
+
+<!--
+<div class="tabs tabs-balanced tabs-icon-top">
+  <a class="tab-item">
+    <i class="icon ion-home"  href="#/tab/dash"></i> Home </a>
+    <a class="tab-item active" href="#/tab/chats"> <i class="icon ion-star"></i> Favorites </a>
+    <a class="tab-item"  href="#/tab/account"> <i class="icon ion-gear-a"></i> Settings </a>
+</div>
+
+-->

@@ -1,0 +1,16 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="itemNotification in listNotification" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+
+        <h2>{{itemNotification.id}}</h2>
+        <p>{{itemNotification.text}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
