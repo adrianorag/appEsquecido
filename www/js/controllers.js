@@ -103,31 +103,14 @@ angular.module('starter.controllers', [])
       });
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
 .controller('AccountCtrl', function($scope) {
-  var listNotifation = window.localStorage.getItem("listNotifation");
-  listNotifation = listNotifation == null ? [] : JSON.parse(listNotifation);
-  $scope.listNotifation= listNotifation;
+  var listNotification = window.localStorage.getItem("listNotification");
+  listNotification = listNotification == null ? [] : JSON.parse(listNotification);
 
-  $scope.settings = {
-    enableFriends: true
-  };
+  var dataAtual = Date();
+  angular.forEach(listNotification, function(value, key) {
+      value.dataPassada =new Date(dataAtual).getTime()> new Date(value.at).getTime();
+  }, this);
+
+  $scope.listNotification= listNotification;
 });
