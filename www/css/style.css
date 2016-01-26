@@ -1,6 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .disabled{
   color: #dddddd;
-  background: #CCC;
-  
+  h2{
+    color: #dddddd;
+  }
 }

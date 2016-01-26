@@ -3,7 +3,7 @@
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="itemNotification in listNotification  | orderBy:'-at'  : reverse" type="item-text-wrap">
         <div ng-class="{disabled :itemNotification.dataPassada}">
-          <h2>{{itemNotification.at | date:"dd/MM/yyyy  H:mm"}}</h2>
+          Data do Lembrete: <h2>{{itemNotification.at | date:"dd/MM/yyyy  H:mm"}}</h2>
           <p>{{itemNotification.text}}</p>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </div>
