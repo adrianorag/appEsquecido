@@ -1,22 +1,5 @@
 <ion-view view-title="Dashboard"  ng-controller="DashCtrl">
   <ion-content class="padding">
-    <!--
-      <button class="button button-full button-positive" ng-click="scheduleSingleNotification()">
-        Show Local Notification (1)
-      </button>
-      <button class="button button-full button-positive" ng-click="scheduleDelayedNotification()">
-        Show Local Notification After 10 sec (2)
-      </button>
-      <button class="button button-full button-positive" ng-click="scheduleEveryMinuteNotification()">
-        Show Local Notification Every 1 min (3)
-      </button>
-      <button class="button button-full button-positive" ng-click="updateSingleNotification()">
-        Update Notification 2 (after 10 sec)
-      </button>
-      <button class="button button-full button-positive" ng-click="cancelSingleNotification()">
-        Cancel Notification 3 (every 1 min)
-      </button>
-    -->
     <form  name="formAlert">
       <div class="button-bar" style="margin-bottom:10px">
         <a class="button" ng-click="addTime(1)">+1 min</a>
@@ -47,32 +30,5 @@
          Me lembre daqui {{alerta.tempoAlerta}} min!!!
       </button>
   </form>
-
-
-    <!--
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>-->
   </ion-content>
 </ion-view>

@@ -32,6 +32,10 @@ angular.module('starter.controllers', [])
           var newNotification = {title: 'Lembre-se', id: contador, text:_textAlert,  at: _timeAlert, tempoMin: tempoMin };
           listNotification.push(newNotification);
 
+          contador ++;
+          window.localStorage.setItem("listNotification",JSON.stringify(listNotification));
+          window.localStorage.setItem("contador",contador);
+
           $cordovaLocalNotification.schedule({
             id:newNotification.id,
             title:newNotification.title,
@@ -42,57 +46,6 @@ angular.module('starter.controllers', [])
           });
 
           $scope.resetForm();
-          contador ++;
-          window.localStorage.setItem("listNotification",JSON.stringify(listNotification));
-          window.localStorage.setItem("contador",contador);
-        };
-
-        $scope.scheduleSingleNotification = function () {
-          $cordovaLocalNotification.schedule({
-            id: 1,
-            title: 'Warning',
-            text: 'Youre so sexy!',
-            data: {
-              customProperty: 'custom value'
-            }
-          }).then(function (result) {
-            console.log('Notification 1 triggered');
-          });
-        };
-
-        $scope.scheduleDelayedNotification = function () {
-          var now = new Date().getTime();
-          var _10SecondsFromNow = new Date(now + 10 * 1000);
-
-          $cordovaLocalNotification.schedule({
-            id: 2,
-            title: 'Warning',
-            text: 'Im so late',
-            at: _10SecondsFromNow
-          }).then(function (result) {
-            console.log('Notification 2 triggered');
-          });
-        };
-
-        $scope.scheduleEveryMinuteNotification = function () {
-          $cordovaLocalNotification.schedule({
-            id: 3,
-            title: 'Warning',
-            text: 'Dont fall asleep',
-            every: 'minute'
-          }).then(function (result) {
-            console.log('Notification 3 triggered');
-          });
-        };
-
-        $scope.updateSingleNotification = function () {
-          $cordovaLocalNotification.update({
-            id: 2,
-            title: 'Warning Update',
-            text: 'This is updated text!'
-          }).then(function (result) {
-            console.log('Notification 1 Updated');
-          });
         };
 
         $scope.cancelSingleNotification = function () {
@@ -103,7 +56,7 @@ angular.module('starter.controllers', [])
       });
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('ListCtrl', function($scope, $cordovaLocalNotification) {
   var listNotification = window.localStorage.getItem("listNotification");
   listNotification = listNotification == null ? [] : JSON.parse(listNotification);
 
@@ -113,4 +66,16 @@ angular.module('starter.controllers', [])
   }, this);
 
   $scope.listNotification= listNotification;
+
+  $scope.cancelNotificantion = function(itemNotification){
+    console.log(itemNotification.id);
+    $cordovaLocalNotification.cancel(itemNotification.id);
+    var lista = $scope.listNotification;
+    angular.forEach($scope.listNotification, function (item,i){
+      if(item.id == itemNotification.id){
+        $scope.listNotification.splice(i, 1);
+      }
+    });
+  };
+
 });

@@ -31,7 +31,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -47,12 +47,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers'])
       }
     }
   })
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.list', {
+    url: '/list',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-list': {
+        templateUrl: 'templates/tab-list.html',
+        controller: 'ListCtrl'
       }
     }
   });
