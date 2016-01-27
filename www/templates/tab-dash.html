@@ -19,15 +19,22 @@
         <a class="button" ng-click="addTime(120)">+2 Horas</a>
         <a class="button" ng-click="addTime(180)">+3 Horas</a>
       </diV>
+
+      <div class="button-bar" style="margin-bottom:10px">
+        <a class="button" ng-click="addTime(1440)">+1 Dia</a>
+        <a class="button" ng-click="addTime(10080)">+7 Dias</a>
+        <a class="button" ng-click="addTime(43200)">+30 Dias</a>
+      </diV>
+
       <div class="list">
         <label class="item item-input item-floating-label">
-          <span class="input-label">Título</span>
+          <span class="input-label">Lembrete</span>
           <input type="text" placeholder="Título" name="input" ng-model="alerta.tituloAlerta" ng-trim="true">
         </label>
       </div>
 
       <button class="button button-full button-positive" ng-click="createSingleNotification()">
-         Me lembre daqui {{alerta.tempoAlerta}} min!!!
+        {{alerta.tempoAlertaEscrito}}
       </button>
 
       <button class="button button-full " ng-click="resetForm()">
