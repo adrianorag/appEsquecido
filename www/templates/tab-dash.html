@@ -1,6 +1,6 @@
 <ion-view view-title="Dashboard"  ng-controller="DashCtrl">
   <ion-content class="padding">
-    <form  name="formAlert">
+    <form  name="formAlert" novalidate>
       <div class="button-bar" style="margin-bottom:10px">
         <a class="button" ng-click="addTime(1)">+1 min</a>
         <a class="button" ng-click="addTime(5)">+5 min</a>
@@ -29,11 +29,11 @@
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Lembrete</span>
-          <input type="text" placeholder="Título" name="input" ng-model="alerta.tituloAlerta" ng-trim="true">
+          <input type="text" placeholder="Lembrete" name="input" ng-model="alerta.tituloAlerta" ng-trim="true" required>
+          <input type="number" name="tempoAlerta" ng-model="alerta.tempoAlerta" min="1" required style="display:none;">
         </label>
       </div>
-
-      <button class="button button-full button-positive" ng-click="createSingleNotification()">
+      <button class="button button-full button-positive" ng-disabled="formAlert.$invalid" ng-click="createSingleNotification()">
         {{alerta.tempoAlertaEscrito}}
       </button>
 

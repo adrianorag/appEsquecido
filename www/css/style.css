@@ -1,7 +1,4 @@
 /* Empty. Add your own CSS if you like */
-.disabled{
-  color: #dddddd;
-  h2{
-    color: #dddddd;
-  }
+.disabled, .disabled h2, .disabled p{
+  color: #ddd;
 }

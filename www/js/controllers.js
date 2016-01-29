@@ -8,7 +8,9 @@ angular.module('starter.controllers', [])
       };
 
       $scope.addTime = function(tempoMin){
-        $scope.alerta.tempoAlerta += tempoMin;
+        if(isNaN($scope.alerta.tempoAlerta))
+          $scope.alerta.tempoAlerta= 0;
+        $scope.alerta.tempoAlerta += parseInt(tempoMin);
         $scope.refreshTempoEscrito();
       }
 
@@ -19,7 +21,7 @@ angular.module('starter.controllers', [])
       }
 
       $scope.refreshTempoEscrito = function(){
-        var min= $scope.alerta.tempoAlerta;
+        var min= parseInt($scope.alerta.tempoAlerta);
 
         if(min ==0){
           $scope.alerta.tempoAlertaEscrito= 'Informe um tempo para o lembrete';
